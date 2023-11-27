@@ -1,5 +1,4 @@
-
-//Create Element Using DOM:-//
+//!Creating Elements:-
 const h1 = document.createElement("h1");
 const p = document.createElement("p");
 const container = document.createElement("div");
@@ -7,110 +6,110 @@ const calculator = document.createElement("div");
 const input_box = document.createElement("div");
 const numBtn = document.createElement("div");
 const input = document.createElement("input");
-
-const num = "C ← . X 7 8 9 / 4 5 6 - 1 2 3 + 0 00 =";
+const num = "C ← .X 7 8 9 / 4 5 6 - 1 2 3 + 0 00 = ";
 const numList = num.split(" ");
-
-//Initiate Class Name:-
-container.className = "container";
+//Initiate the class name:-
+container.classname = "container";
 calculator.className = "calculator";
 input_box.id = "inputBox";
 numBtn.className = "nums";
 input.id = "result";
-h1.innerText = "Calculator"
+h1.innerText = "calculator";
 h1.id = "title";
-h1.className = "text-center"
+h1.className = "text-center";
 
 //Initiation of tag p:-
-p.innerText = "This calculator program Using DOM";
-p.id = "description";
+p.innerText = "This calculator program Using DOM"
+p.id="description";
 p.className = "text-center";
 
-//Initiation of tag p:-
-document.body.append(h1, p, container);
+//Using append method:-
+document.body.append(h1,p,container);
 container.append(calculator);
-calculator.append(input_box, numBtn);
-//Using Get Element :-
+calculator.append(input_box,numBtn);
 const inputBox = document.getElementById("inputBox");
 inputBox.append(input);
 
-//function of button creation:-1
-function buttons(valu) {
+//Buttton creation:-
+function buttons(vall){
   let element = document.createElement("button");
-  element.setAttribute("value", valu);
-  element.setAttribute("id", valu);
-  element.innerText = valu;
- //using Revealed Method:-
+  element.setAttribute("value",vall);
+  element.setAttribute("id",vall);
+  element.innerText= vall;
+  //Using revealed method:-
   let btnList = element.innerText;
-  if (btnList == "C" || btnList === "←") {
-    switch (btnList === valu) {
-    
-      case valu === "C":
+  if (btnList == "C" || btnList === "←"){
+    switch(btnList === vall){
+
+      case vall ==="C":
         element.style.color = "red";
         element.id = "clear";
         element.value = "";
-        element.addEventListener("click", () => {
+        element.addEventListener("click,()=>"{
           input.value = "";
         });
         break;
-      case valu === "←":
-         element.addEventListener('click', ()=>{
-            input.value = input.value.slice(0, -1)
-         })
-         element.value = ""
-         break;
+        case vall ==="←":
+          element.addEventListener("click",()=>{
+            input.value = input.value.slice(0,-1)
+          })
+          element.value = ""
+          break;
     }
   }
-  if (
-    btnList === "X" ||
-    btnList === "/" ||
-    btnList === "-" ||
-    btnList === "+" ||
-    btnList === "."
-  ) {
+if(
+  btnList ==="X" ||
+  btnList ==="/" ||
+  btnList ==="+" ||
+  btnList ==="-" ||
+  btnList ==="." ||
+  ){
     element.style.color = "blue";
-    switch (btnList === valu) {
-      case valu === "+":
-        element.id = "add";
+    switch(btnList === vall){
+      case vall ==="+":
+        element.id="addition";
         break;
-      case valu === "-":
-        element.id = "subtract";
+
+        case vall ==="-":
+        element.id="subtract";
         break;
-      case valu=== "X":
-        element.id = "multiplication";
-        element.value = "*";
+
+        case vall ==="+":
+        element.id="multiplication";
         break;
-      case valu === "/":
-        element.id = "division";
+
+        case vall ==="+":
+        element.id="division";
         break;
-      case valu === ".":
-        element.id = "point";
+
+        case vall ==="+":
+        element.id="point";
+        
     }
   }
-   //Using Input condition alert:-
-  if (btnList === "=") {
+  //Using input condition alert:-
+  if(btnList === "="){
     element.id = "equal";
     element.value = ""
-    element.addEventListener("click",()=> {
+    element.addEventListener("click",()=>{
       try{
-         input.value = eval(input.value);
+        input.value = eval(input.value);
       }
       catch(error){
-         alert("Invalid input")
-         input.value = ""
+        alert("Invalid input")
+        input.value = ""
       }
     })
   }
 
-  element.addEventListener("click", () => {
+  element.addEventListener("click",()=>{
     input.value += element.value;
   });
-
   return element;
 }
 
-//Using for loop for repeat the calculation process:-
-for (let i = 0; i < numList.length; i++) {
-  let inpt = buttons(numList[i]);
-  numBtn.append(inpt);
+//Using for loop repeat the calculation proces:-
+for(let i=0;i<numList.length;i++){
+  let input = buttons(numList[i]);
+  numBtn.append(input);
 }
